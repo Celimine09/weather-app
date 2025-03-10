@@ -17,7 +17,7 @@ export default function Navbar({}: Props) {
         <section className="flex gap-2 items-center">
           <FaLocationCrosshairs className="text-3xl text-gray-500 hover:opacity-80 cursor-pointer" />
           <FaLocationDot className="text-4xl " />
-          <p className="text-slate-900/80 text-sm">Thailand</p>
+          <p className="text-slate-900/80 text-sm">Bangkok</p>
           <div>
             {/* */}
             <SearchBox />

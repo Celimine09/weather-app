@@ -1,12 +1,24 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 
-type Props = {};
+type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
+  children: React.ReactNode;
+};
 
-export default function Container(props: React.HTMLProps<HTMLDivElement>) {
+export default function Container({
+  children,
+  className,
+  ...rest
+}: ContainerProps) {
   return (
     <div
-      {...props}
-      className="w-full bg-white bordeer rounded-xl flex py-4 shadow-sm"
-    />
+      className={cn(
+        "w-full bg-white border rounded-xl flex py-4 shadow-sm",
+        className
+      )}
+      {...rest}
+    >
+      {children}
+    </div>
   );
 }

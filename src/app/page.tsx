@@ -2,9 +2,12 @@
 
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
+import WeatherDetails from "@/components/WeatherDetail";
 import WeatherIcon from "@/components/WeatherIcon";
+import { convertWindSpeed } from "@/utils/convertWindSpeed";
 import { convertKelvinToCelsius } from "@/utils/covertKelvinToCelsius";
 import { getDayOrNightIcon } from "@/utils/getDayOrNightIcon";
+import { metersToKilometers } from "@/utils/metersToKilometers";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { parseISO, format } from "date-fns";
@@ -66,7 +69,7 @@ interface WeatherDetail {
 }
 
 export default function Home() {
-  const { isPending, error, data } = useQuery<weatherData>({
+  const { isPending, error, data } = useQuery<WeatherData>({
     queryKey: ["repoData"],
     queryFn: async () => {
       const { data } = await axios.get(
@@ -102,7 +105,7 @@ export default function Home() {
                 ({format(parseISO(firstData?.dt_txt ?? ""), "dd.MM.yyyy")})
               </p>
             </h2>
-            <Container className=" gap-10 px-6 items-center">
+            <div className=" gap-10 px-6 items-center containerbox">
               <div className=" flex flex-col px-4 ">
                 <span className="text-5xl">
                   {convertKelvinToCelsius(firstData?.main.temp ?? 0)}°
@@ -144,11 +147,37 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </Container>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <div className="w-fit justify-center flex-col px-4 items-center containerbox">
+              <p className=" capitalize text-center">
+                {firstData?.weather[0].description}{" "}
+              </p>
+              <WeatherIcon
+                iconName={getDayOrNightIcon(
+                  firstData?.weather[0].icon ?? "",
+                  firstData?.dt_txt ?? ""
+                )}
+              />
+            </div>
+            <div className="bg-yellow-300/80 px-6 gap-4 flex items-center overflow-x-auto containerbox justify-between">
+              <WeatherDetails
+                visability={metersToKilometers(firstData?.visibility ?? 10000)}
+                airPressure={`${firstData?.main.pressure} hPa`}
+                humidity={`${firstData?.main.humidity}%`}
+                sunrise={format(data?.city.sunrise ?? 1702949452, "H:mm")}
+                // sunrise={}
+                sunset={format(data?.city.sunset ?? 1702517657, "H:mm")}
+                windSpeed={convertWindSpeed(firstData?.wind.speed ?? 1.64)}
+              />
+            </div>
           </div>
         </section>
 
-        <section></section>
+        <section className="flex w-full flex-col gap-4">
+          <p className="text-2xl">Forecast(7 days)</p>
+        </section>
       </main>
     </div>
   );

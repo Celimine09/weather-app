@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.67.2",
+    "atom": "^1.4.2",
     "axios": "^1.8.2",
     "clsx": "^2.1.1",
     "date-fns": "^2.30.0",

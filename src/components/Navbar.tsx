@@ -5,17 +5,21 @@ import { IoIosPartlySunny } from "react-icons/io";
 import { FaLocationCrosshairs, FaLocationDot } from "react-icons/fa6";
 import SearchBox from "./SearchBox";
 import axios from "axios";
+import { loadingCityAtom, placeAtom } from "@/app/atom";
+import { useAtom } from "jotai";
 
-type Props = {};
+type Props = { location?: string };
 
 const API_KEY = process.env.NEXT_PUBLIC_WEATHER_KEY;
 
-export default function Navbar({}: Props) {
+export default function Navbar({ location }: Props) {
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
   //
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [place, setPlace] = useAtom(placeAtom);
+  const [_, setLoadingCity] = useAtom(loadingCityAtom);
 
   async function handleInputChange(value: string) {
     setCity(value);
@@ -69,15 +73,18 @@ export default function Navbar({}: Props) {
         </div>
 
         <section className="flex gap-2 items-center">
-          <FaLocationCrosshairs className="text-3xl text-gray-500 hover:opacity-80 cursor-pointer" />
+          <FaLocationCrosshairs
+            title="Your Current Location"
+            className="text-3xl text-gray-500 hover:opacity-80 cursor-pointer"
+          />
           <FaLocationDot className="text-4xl " />
-          <p className="text-slate-900/80 text-sm">Bangkok</p>
-          <div>
+          <p className="text-slate-900/80 text-lg font-bold">{location}</p>
+          <div className="relative">
             {/* */}
             <SearchBox
               value={city}
-              onsubmit={handleSubmitSearch}
-              onchange={(e) => handleInputChange(e.target.value)}
+              onSubmit={handleSubmitSearch}
+              onChange={(e) => handleInputChange(e.target.value)}
             />
             <SuggestionBox
               {...{

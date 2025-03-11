@@ -1,18 +1,20 @@
+/** @format */
+
 import { cn } from "@/utils/cn";
 import React from "react";
-import { FaSearchLocation } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 
 type Props = {
   className?: string;
   value: string;
-  onchange: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  onsubmit: React.FormEventHandler<HTMLFormElement> | undefined;
+  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
 };
 
 export default function SearchBox(props: Props) {
   return (
     <form
-      onSubmit={props.onsubmit}
+      onSubmit={props.onSubmit}
       className={cn(
         "flex relative items-center justify-center h-10",
         props.className
@@ -21,12 +23,12 @@ export default function SearchBox(props: Props) {
       <input
         type="text"
         value={props.value}
-        onChange={props.onchange}
-        placeholder="Search Location.."
+        onChange={props.onChange}
+        placeholder="Search location.."
         className="px-4 py-1.5 w-[230px] border border-gray-300 rounded-l-md focus:outline-none  focus:border-blue-500 h-full"
       />
       <button className="px-4 py-[9.43px] bg-blue-500 text-white rounded-r-md focus:outline-none hover:bg-blue-600  h-full">
-        <FaSearchLocation />
+        <IoSearch />
       </button>
     </form>
   );

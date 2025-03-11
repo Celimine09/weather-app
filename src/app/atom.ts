@@ -2,6 +2,6 @@
 
 import { atom } from "jotai";
 
-export const placeAtom = atom("Republic of India");
+export const placeAtom = atom("Bangkok,th");
 
 export const loadingCityAtom = atom(false);

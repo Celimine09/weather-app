@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌤️ Weathering App
 
-## Getting Started
+ยินดีต้อนรับสู่ **Weathering App** เว็บแอปพลิเคชันที่ช่วยให้คุณตรวจสอบสภาพอากาศได้ง่ายๆ ด้วยอินเทอร์เฟซที่สวยงามและใช้งานง่าย
 
-First, run the development server:
+## 📌 คุณสมบัติที่สำคัญ
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **แสดงสภาพอากาศปัจจุบัน**: ดูข้อมูลสภาพอากาศปัจจุบันได้อย่างรวดเร็วและแม่นยำ
+- **พยากรณ์อากาศรายวัน**: แสดงข้อมูลพยากรณ์อากาศล่วงหน้า 5 วัน เพื่อช่วยให้คุณเตรียมพร้อมในทุกสถานการณ์
+- **ระบบค้นหาตำแหน่งที่ตั้ง**: ค้นหาสภาพอากาศของเมืองต่างๆ ทั่วโลกอย่างง่ายดาย
+- **อินเทอร์เฟซที่เรียบง่ายและทันสมัย**: ออกแบบมาให้ใช้งานง่าย สบายตา และเหมาะกับผู้ใช้ทุกวัย
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 วิธีการติดตั้ง
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. โคลนโปรเจกต์ไปยังเครื่องของคุณ:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/Celimine09/weather-app.git
+   ```
 
-## Learn More
+2. ติดตั้ง dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. เรียกใช้งานโปรเจกต์:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm start
+   ```
 
-## Deploy on Vercel
+4. เปิดเบราว์เซอร์แล้วไปที่:
+   ```bash
+   http://localhost:3000
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ เทคโนโลยีที่ใช้
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **NEXTJS**
+- **TYPESCRIPT**
+- **TAILWINDCSS**
+- **API จาก OpenWeatherMap**
+
+ขอบคุณที่สนใจในโปรเจกต์นี้!🎉

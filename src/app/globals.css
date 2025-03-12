@@ -4,6 +4,7 @@
 
 @layer components {
     .containerbox {
-        @apply w-full bg-white border rounded-xl flex py-4 shadow-sm;
+        @apply w-full bg-[#ADBBDA] border rounded-xl flex py-4 shadow-sm;
     }
 }
+

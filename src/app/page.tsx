@@ -116,9 +116,8 @@ export default function Home() {
         <p className="animate-bounce">Loading...</p>
       </div>
     );
-
   return (
-    <div className="flex flex-col gap-4 bg-gray-200 min-h-screen">
+    <div className="flex flex-col gap-4 bg-[#758dc9] min-h-screen">
       <Navbar location={data?.city.name} />
       <main className="px-3 max-w-7xl mx-auto flex flex-col gap-9 w-full pb-10 pt-4">
         {loadingCity ? (
@@ -127,7 +126,7 @@ export default function Home() {
           <>
             <section className="space-y-4 ">
               <div className="space-y-2">
-                <h2 className="flex gap-1 text-2xl  items-end ">
+                <h2 className="flex gap-1 text-2xl  items-end text-white ">
                   <p>{format(parseISO(firstData?.dt_txt ?? ""), "EEEE")}</p>
                   <p className="text-lg">
                     ({format(parseISO(firstData?.dt_txt ?? ""), "dd.MM.yyyy")})
@@ -195,7 +194,7 @@ export default function Home() {
                     )}
                   />
                 </div>
-                <div className="bg-yellow-300/80 px-6 gap-4 flex items-center overflow-x-auto containerbox justify-between">
+                <div className="bg-[#FAED26]/80 px-6 gap-4 flex items-center overflow-x-auto containerbox justify-between">
                   <WeatherDetails
                     visability={metersToKilometers(
                       firstData?.visibility ?? 10000
@@ -212,7 +211,7 @@ export default function Home() {
             </section>
 
             <section className="flex w-full flex-col gap-4">
-              <p className="text-2xl">Forecast(Next 5 days)</p>
+              <p className="text-2xl text-white">Forecast(Next 5 days)</p>
               {firstDataForEachDate.map((d, i) => {
                 if (!d) {
                   return (
